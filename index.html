@@ -101,30 +101,36 @@
 
     /* Timeline */
     .timeline {
-      margin: 50px auto;
-      max-width: 600px;
       position: relative;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 0 10px;
     }
+    /* Timeline vertical line */
     .timeline::after {
       content: '';
       position: absolute;
-      left: 50%;
       top: 0;
+      bottom: 0;
+      left: 50%;
       transform: translateX(-50%);
       width: 4px;
-      height: 100%;
       background: #ff66cc;
     }
 
+    /* Event boxes */
     .event {
       position: relative;
-      width: 50%;
+      width: 45%;
       padding: 15px 20px;
       box-sizing: border-box;
+      margin: 20px 0;
       cursor: pointer;
     }
     .event.left { left: 0; text-align: right; }
-    .event.right { left: 50%; text-align: left; }
+    .event.right { left: 55%; text-align: left; }
+
+    /* Timeline dot */
     .event::before {
       content: '';
       position: absolute;
@@ -138,41 +144,39 @@
     }
     .event.left::before { right: -8px; }
     .event.right::before { left: -8px; }
+
     .event p {
       background: rgba(255, 51, 153, 0.2);
       padding: 10px;
       border-radius: 10px;
       display: inline-block;
+      margin: 0;
     }
 
-   @media (max-width: 600px) {
-  .timeline::after {
-    left: 20px; /* timeline line near left */
-    height: 100%;
-  }
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .timeline::after {
+        left: 20px; /* timeline line near left */
+      }
 
-  .event {
-    width: 100%;
-    text-align: left;
-    padding-left: 50px; /* leave space for timeline dot */
-    margin-bottom: 30px; /* more space between events */
-  }
+      .event, .event.left, .event.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 50px; /* leave space for dot */
+        margin: 25px 0;
+      }
 
-  .event.left,
-  .event.right {
-    left: 0;
-  }
+      .event::before {
+        left: 20px; /* dot near line */
+        right: auto;
+      }
 
-  .event::before {
-    left: 10px; /* dot near timeline line */
-    right: auto;
-  }
-
-  .event p {
-    display: block;
-    max-width: calc(100% - 60px); /* prevent overflow */
-  }
-}
+      .event p {
+        display: block;
+        max-width: calc(100% - 60px);
+      }
+    }
 
     /* Popup */
     .popup {
