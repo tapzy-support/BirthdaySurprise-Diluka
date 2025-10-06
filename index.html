@@ -106,7 +106,6 @@
       margin: 50px auto;
       padding: 0 10px;
     }
-    /* Timeline vertical line */
     .timeline::after {
       content: '';
       position: absolute;
@@ -118,7 +117,6 @@
       background: #ff66cc;
     }
 
-    /* Event boxes */
     .event {
       position: relative;
       width: 45%;
@@ -130,7 +128,6 @@
     .event.left { left: 0; text-align: right; }
     .event.right { left: 55%; text-align: left; }
 
-    /* Timeline dot */
     .event::before {
       content: '';
       position: absolute;
@@ -153,184 +150,27 @@
       margin: 0;
     }
 
-    /* Mobile adjustments */
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Magic!</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #0d1b2a, #1b263b);
-      color: white;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Floating stars */
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 3s infinite;
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 0.2; }
-    }
-
-    /* Floating hearts 💖 */
-    .heart {
-      position: absolute;
-      font-size: 22px;
-      animation: floatHeart 6s linear infinite;
-    }
-    @keyframes floatHeart {
-      0% { transform: translateY(100vh); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
-    }
-
-    /* Cartoon character */
-    .character {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: url('cartoon.png') no-repeat center/contain;
-      animation: floatCharacter 10s linear infinite;
-    }
-    @keyframes floatCharacter {
-      0% { transform: translateX(-10vw) translateY(80vh); }
-      100% { transform: translateX(110vw) translateY(10vh); }
-    }
-
-    /* Header */
-    h1 {
-      margin-top: 60px;
-      font-size: 3em;
-      font-family: 'Pacifico', cursive;
-      color: #ff99cc;
-      text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff3399;
-      text-align: center;
-    }
-
-    .typing-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.6em;
-      max-width: 800px;
-      margin: 20px auto;
-      color: #ffe6f0;
-      white-space: pre-wrap;
-      text-align: center;
-      min-height: 4em;
-      padding: 0 20px;
-    }
-
-    button {
-      background-color: #ff3399;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1em;
-      cursor: pointer;
-      margin-top: 30px;
-      transition: background 0.3s;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    button:hover {
-      background-color: #e60073;
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      max-width: 700px;
-      margin: 50px auto;
-      padding: 0 10px;
-    }
-    /* Timeline vertical line */
-    .timeline::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      background: #ff66cc;
-    }
-
-    /* Event boxes */
-    .event {
-      position: relative;
-      width: 45%;
-      padding: 15px 20px;
-      box-sizing: border-box;
-      margin: 20px 0;
-      cursor: pointer;
-    }
-    .event.left { left: 0; text-align: right; }
-    .event.right { left: 55%; text-align: left; }
-
-    /* Timeline dot */
-    .event::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 15px;
-      height: 15px;
-      background: #ff3399;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      z-index: 1;
-    }
-    .event.left::before { right: -8px; }
-    .event.right::before { left: -8px; }
-
-    .event p {
-      background: rgba(255, 51, 153, 0.2);
-      padding: 10px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 0;
-    }
-
-    /* Mobile adjustments */
+    /* Mobile fixes */
     @media (max-width: 600px) {
       .timeline::after {
-        left: 20px; /* timeline line near left */
+        left: 30px; /* timeline line near left */
       }
 
       .event, .event.left, .event.right {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding-left: 50px; /* leave space for dot */
-        margin: 25px 0;
+        width: 100% !important;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 70px;
+        margin-bottom: 25px;
       }
 
       .event::before {
-        left: 20px; /* dot near line */
-        right: auto;
+        left: 30px !important;
+        right: auto !important;
       }
 
       .event p {
-        display: block;
-        max-width: calc(100% - 60px);
+        max-width: calc(100% - 90px);
       }
     }
 
@@ -415,7 +255,6 @@
     // Floating background items
     const bg = document.getElementById('animated-bg');
 
-    // stars
     for (let i = 0; i < 50; i++) {
       const s = document.createElement('div');
       s.className = 'star';
@@ -425,7 +264,6 @@
       bg.appendChild(s);
     }
 
-    // hearts
     for (let i = 0; i < 10; i++) {
       const h = document.createElement('div');
       h.className = 'heart';
@@ -435,7 +273,6 @@
       bg.appendChild(h);
     }
 
-    // cartoon
     const c = document.createElement('div');
     c.className = 'character';
     bg.appendChild(c);
@@ -452,7 +289,6 @@
     }
     typeText();
 
-    // surprise confetti
     function showSurprise() {
       confetti({
         particleCount: 150,
@@ -463,150 +299,6 @@
       audio.play();
     }
 
-    // popup show/hide
-    function showPopup(title, img, desc) {
-      document.getElementById('popup-title').innerText = title;
-      document.getElementById('popup-image').src = img;
-      document.getElementById('popup-desc').innerText = desc;
-      document.getElementById('popup').classList.add('show');
-    }
-
-    function closePopup() {
-      document.getElementById('popup').classList.remove('show');
-    }
-  </script>
-</body>
-</html>
-    /* Popup */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      background: #1b1b2f;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(255, 102, 204, 0.6);
-      text-align: center;
-      z-index: 9999;
-      padding: 15px;
-      width: 300px;
-      max-height: 400px;
-      overflow: hidden;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-    }
-    .popup.show {
-      display: block;
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-
-    .popup img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #ff66cc;
-    }
-    .popup p {
-      font-size: 0.9em;
-      color: #ffe6f0;
-    }
-    .close-icon {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 1.3em;
-      cursor: pointer;
-      color: #ff66cc;
-    }
-  </style>
-</head>
-<body>
-  <div id="animated-bg"></div>
-
-  <h1>Happy Birthday, Nanduni 💖</h1>
-  <div class="typing-text" id="typing"></div>
-
-  <button onclick="showSurprise()">🎁 Click for Your Surprise</button>
-
-  <div class="timeline">
-    <div class="event left" onclick="showPopup('Childhood Beach', 'photo1.jpg', '🎉 Fun day at the beach!')">
-      <p>🎉 Childhood beach memory</p>
-    </div>
-    <div class="event right" onclick="showPopup('First Achievement', 'photo2.jpg', '🏆 Our first big achievement together!')">
-      <p>🏆 First big achievement</p>
-    </div>
-    <div class="event left" onclick="showPopup('Starry Date', 'photo3.jpg', '💖 Magical night under the stars')">
-      <p>💖 Magical starry night</p>
-    </div>
-    <div class="event right" onclick="showPopup('Birthday Magic', 'photo4.jpg', '🎂 Today\'s magical birthday moment!')">
-      <p>🎂 Birthday Magic!</p>
-    </div>
-  </div>
-
-  <div class="popup" id="popup">
-    <span class="close-icon" onclick="closePopup()">×</span>
-    <h3 id="popup-title"></h3>
-    <img id="popup-image" src="" alt="">
-    <p id="popup-desc"></p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    // Floating background items
-    const bg = document.getElementById('animated-bg');
-
-    // stars
-    for (let i = 0; i < 50; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.top = Math.random() * 100 + 'vh';
-      s.style.animationDuration = 2 + Math.random() * 3 + 's';
-      bg.appendChild(s);
-    }
-
-    // hearts
-    for (let i = 0; i < 10; i++) {
-      const h = document.createElement('div');
-      h.className = 'heart';
-      h.innerText = '💖';
-      h.style.left = Math.random() * 100 + 'vw';
-      h.style.animationDuration = 5 + Math.random() * 3 + 's';
-      bg.appendChild(h);
-    }
-
-    // cartoon
-    const c = document.createElement('div');
-    c.className = 'character';
-    bg.appendChild(c);
-
-    // typing effect
-    const message = "May your day sparkle with laughter, love, and a little bit of magic ✨💫";
-    let i = 0;
-    function typeText() {
-      if (i < message.length) {
-        document.getElementById("typing").textContent += message.charAt(i);
-        i++;
-        setTimeout(typeText, 80);
-      }
-    }
-    typeText();
-
-    // surprise confetti
-    function showSurprise() {
-      confetti({
-        particleCount: 150,
-        spread: 100,
-        origin: { y: 0.6 }
-      });
-      const audio = new Audio('birthday-voice.mp3');
-      audio.play();
-    }
-
-    // popup show/hide
     function showPopup(title, img, desc) {
       document.getElementById('popup-title').innerText = title;
       document.getElementById('popup-image').src = img;
